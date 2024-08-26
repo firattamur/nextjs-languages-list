@@ -1,8 +1,22 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from '@next/font/local'
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+
+const robotoRounded = localFont({
+  src: [
+    {
+      path: '../../public/fonts/Roboto-Rounded/Roboto-Black.ttf',
+      weight: '400'
+    },
+    {
+      path: '../../public/fonts/Roboto-Rounded/Roboto-Bold.ttf',
+      weight: '700'
+    }
+  ],
+  variable: '--font-roboto-rounded'
+})
+
 
 export const metadata: Metadata = {
   title: "Languages List 🇹🇷",
@@ -16,7 +30,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        {children}
+        </body>
     </html>
   );
 }
